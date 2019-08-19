@@ -14,10 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author giovanna
+ * @author Pedro
  */
-@WebServlet(urlPatterns = {"/home"})
-public class home extends HttpServlet {
+@WebServlet(urlPatterns = {"/jurossimples.html"})
+public class JurosSimples extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,20 +36,35 @@ public class home extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>home</title>");
+            out.println("<title>Juros Simples</title>");            
             out.println("</head>");
+            out.println("<body>");
             out.println("<center>");
-            out.println("<br> <h1> Programação Orientada a Objetos<br>Projeto 1 (Grupo 5) <br> </h1>");
-            out.println ("Caroline Pistoresi Pedrosa - (Home) <br> "
-                               + " Ermesom Matheus Diniz Silva  - (CSS) <br> "    
-                               + " Pedro Lucas Maranini Tosta - ( Juros Simples e Composto) <br>"  );
+            out.println("<h1>Fórmula do Juros Simples</h1>");
             
-            out.println("<h2>Calculo para juros simples e composto " + request.getContextPath() + "</h2>");
-            out.println("<a href= 'jurossimples.html' > Juros Simples </a><br>" 
-                                       + "<a href= 'juroscomposto.html' > Juros Composto </a>");
+            out.println("<h2>M = C. ( 1 + ( i.n ) )</h2>");
+            out.println("<h3>C = Capital inicial</h3>");
+            out.println("<h3>i = Taxa de juros</h3>");
+            out.println("<h3>n = Tempo/Periodo</h3>");
+            
+            
+            out.println("<h1>Insira a taxa de juros:</h1>");
+             out.println("<p><form action='calculo.html'>"
+                    + "&nbsp;i = <input type='text' name='i'/></p>");
+             
+            out.println("<h1>Insira o restante dos dados:</h1>");
+            out.println("<p><form action='calculo.html'>"
+                    + "C = <input type='text' name='c'/></p>");
+           
+            out.println("<p><form action='calculo.html'>"
+                    + "n = <input type='text' name='n'/></p>");
+            
+            out.println("<input type='submit' value='Calcular'/>");
+            
+            out.println("<h1><a href='home'>Voltar</a></h1>");
+            out.println("</center>");
             out.println("</body>");
             out.println("</html>");
-            out.println ("</center>");
         }
     }
 

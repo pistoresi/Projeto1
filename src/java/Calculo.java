@@ -6,6 +6,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,10 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author giovanna
+ * @author Pedro
  */
-@WebServlet(urlPatterns = {"/home"})
-public class home extends HttpServlet {
+@WebServlet(urlPatterns = {"/calculo.html"})
+public class Calculo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,23 +34,39 @@ public class home extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            DecimalFormat df = new DecimalFormat("#.00");
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>home</title>");
+            out.println("<title>Resultado</title>");            
             out.println("</head>");
+            out.println("<body>");
             out.println("<center>");
-            out.println("<br> <h1> Programação Orientada a Objetos<br>Projeto 1 (Grupo 5) <br> </h1>");
-            out.println ("Caroline Pistoresi Pedrosa - (Home) <br> "
-                               + " Ermesom Matheus Diniz Silva  - (CSS) <br> "    
-                               + " Pedro Lucas Maranini Tosta - ( Juros Simples e Composto) <br>"  );
+            out.println("<h1>Resultado para o calculo:</h1>");
             
-            out.println("<h2>Calculo para juros simples e composto " + request.getContextPath() + "</h2>");
-            out.println("<a href= 'jurossimples.html' > Juros Simples </a><br>" 
-                                       + "<a href= 'juroscomposto.html' > Juros Composto </a>");
+            int c = Integer.parseInt(request.getParameter("c"));
+            float i = Float.parseFloat(request.getParameter("i"));
+            int n = Integer.parseInt(request.getParameter("n"));
+            
+            float calc2 = 0;
+            float calc3 = 0;
+            float r = 0;
+            
+            if ( i > 0) {
+                calc2 = (n * (i / 100));
+                calc3 = calc2 + 1;
+                r = calc3 * c;
+            }
+            
+            
+            out.println("<h2>Seu montante é: " + df.format(r) + "</h2>");
+            
+            out.println("<h1><a href='jurossimples.html'>Voltar</a></h1>");
+            out.println("</center>");
+            
             out.println("</body>");
             out.println("</html>");
-            out.println ("</center>");
         }
     }
 
