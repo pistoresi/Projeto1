@@ -58,7 +58,7 @@ public class JurosComposto extends HttpServlet {
             
             out.println("<input type='submit' value='Calcular'/>");
             
-            out.println("<h1><a href='home'>Voltar</a></h1>");
+            out.println("<h1><a href='home.html'>Voltar</a></h1>");
             out.println("</center>");
             out.println("</body>");
             out.println("</html>");
